@@ -187,6 +187,10 @@ else()
     add_definitions(-D_GNU_SOURCE=1)
   endif()
 
+  if (APPLE AND "${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU")
+    add_definitions(-D_DARWIN_C_SOURCE)
+  endif()
+
   if (QNXNTO)
     add_definitions(-D_QNX_SOURCE)
   endif()
